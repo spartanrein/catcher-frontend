@@ -21,7 +21,7 @@ export default function TopScores() {
     const [page, setPage] = useState(0)
     const [rowsPerPage, setRowsPerPage] = useState(10)
     const { data, error, isLoading } = useGetScoresQuery({count:100},{refetchOnMountOrArgChange: true})
-    const [ready, val, send] = useWs('ws://localhost:5000')
+    const [ready, val, send] = useWs(process.env.REACT_APP_WS)
     
     useEffect(() => {
         if (val?.name === 'topscores' && val?.message === 'update'){

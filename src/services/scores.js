@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const scoreApi = createApi({
     reducerPath: 'scoresApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/scores'}),
+    baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_API}),
     tagTypes:['Scores'],
     endpoints: (builder) => ({
         getScores: builder.query({
